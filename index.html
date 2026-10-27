@@ -6,6 +6,14 @@
     <meta name="description" content="Портфолио Ваше Имя — Python / Django разработчик">
     <meta name="color-scheme" content="light dark">
     <title>Ваше Имя — Python / Django разработчик</title>
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
@@ -14,6 +22,7 @@
     <header class="site-header">
         <nav class="nav container" aria-label="Основная навигация">
             <a class="nav__logo" href="#top">Ваше Имя</a>
+            <div class="nav__right">
             <ul class="nav__links">
                 <li><a href="#about">Обо мне</a></li>
                 <li><a href="#skills">Навыки</a></li>
@@ -21,6 +30,8 @@
                 <li><a href="#experience">Опыт</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему">🌙</button>
+            </div>
         </nav>
     </header>
 
@@ -181,5 +192,29 @@
             <p>&copy; 2026 Ваше Имя. Сделано с любовью к коду.</p>
         </div>
     </footer>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            function current() {
+                return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+            }
+            function render() {
+                var dark = current() === 'dark';
+                btn.textContent = dark ? '☀️' : '🌙';
+                btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+                btn.title = btn.getAttribute('aria-label');
+            }
+            btn.addEventListener('click', function () {
+                var next = current() === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+                render();
+            });
+            mq.addEventListener && mq.addEventListener('change', render);
+            render();
+        })();
+    </script>
 </body>
 </html>

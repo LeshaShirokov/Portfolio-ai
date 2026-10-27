@@ -2,7 +2,7 @@
 
 Макет шаблонов для портфолио программиста: статическая HTML-вёрстка (HTML + CSS).
 
-Посмотреть страницу: https://leshashirokov.github.io/-/
+Посмотреть страницу: https://leshashirokov.github.io/Portfolio-ai/
 
 ## Структура
 

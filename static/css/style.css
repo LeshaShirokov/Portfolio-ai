@@ -5,8 +5,8 @@
     --surface: #ffffff;
     --text: #1c2430;
     --text-muted: #5b6676;
-    --accent: #8b1a3a;          /* бордовый */
-    --accent-hover: #6b1230;
+    --accent: #c8102e;          /* красный */
+    --accent-hover: #9b0c23;
     --accent-contrast: #ffffff;
     --border: #dde3ea;
     --shadow: 0 4px 16px rgba(20, 30, 50, 0.08);
@@ -23,9 +23,9 @@
         --surface: #1a222c;
         --text: #e6ebf1;
         --text-muted: #9aa6b4;
-        --accent: #d9566f;
-        --accent-hover: #e8798f;
-        --accent-contrast: #2a0a14;
+        --accent: #ff3b30;
+        --accent-hover: #ff6a61;
+        --accent-contrast: #ffffff;
         --border: #2a3542;
         --shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }

@@ -14,7 +14,7 @@
             } catch (e) {}
         })();
     </script>
-    <link rel="stylesheet" href="static/css/style.css?v=8">
+    <link rel="stylesheet" href="static/css/style.css?v=9">
 </head>
 <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -198,8 +198,9 @@
                         </label>
                     </div>
                     <p class="form-error" id="rf-error" role="alert" hidden></p>
+                    <p class="form-ok" id="rf-ok" role="status" hidden></p>
                     <button class="btn btn--primary" type="submit">Отправить заявку</button>
-                    <p class="form-note">Нажав кнопку, вы откроете почтовую программу с готовым письмом. Данные отправляются напрямую мне и не сохраняются на сайте.</p>
+                    <p class="form-note">Сейчас форма работает в тестовом режиме: данные никуда не отправляются и не сохраняются.</p>
                 </form>
             </div>
         </section>
@@ -262,11 +263,11 @@
         (function () {
             var form = document.getElementById('request-form');
             var err = document.getElementById('rf-error');
-            var TO = 'you@example.com'; // замените на свой адрес
+            var ok = document.getElementById('rf-ok');
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 var name = form.name.value.trim(), email = form.email.value.trim(), task = form.task.value.trim();
-                err.hidden = true;
+                err.hidden = true; ok.hidden = true;
                 if (!name || !email || !task || !form.email.validity.valid) {
                     err.textContent = 'Заполните все поля и укажите корректный email.';
                     err.hidden = false; return;
@@ -275,10 +276,11 @@
                     err.textContent = 'Для отправки заявки необходимо согласие на обработку персональных данных.';
                     err.hidden = false; return;
                 }
-                var body = 'Имя: ' + name + '\nEmail: ' + email + '\n\nОписание проекта:\n' + task +
-                    '\n\nСогласие на обработку персональных данных дано: ' + new Date().toLocaleString('ru-RU');
-                window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Заявка на разработку проекта') +
-                    '&body=' + encodeURIComponent(body);
+                // ЗАГЛУШКА: заявка пока никуда не отправляется.
+                // Когда будет готов приём заявок, отправьте данные здесь.
+                form.reset();
+                ok.textContent = 'Спасибо! Заявка принята (тестовый режим: данные пока никуда не отправляются).';
+                ok.hidden = false;
             });
         })();
     </script>

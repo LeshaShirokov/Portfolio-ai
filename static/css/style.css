@@ -434,3 +434,13 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
 .modal h2 { margin: 0 0 0.75rem; font-size: 1.25rem; }
 .modal p { margin: 0 0 1.5rem; color: var(--text-muted); }
 .modal .btn { cursor: pointer; font: inherit; font-weight: 600; }
+
+/* ===== Карточки-ссылки ===== */
+.card { position: relative; }
+.card:hover { border-color: var(--accent); }
+.card__link { color: inherit; }
+.card__link::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.card__link:hover { text-decoration: none; color: var(--accent); }
+.card__links { position: relative; z-index: 1; }
+.doc .card__links { display: flex; gap: 1rem; }
+.doc .card__tags { padding: 0; }

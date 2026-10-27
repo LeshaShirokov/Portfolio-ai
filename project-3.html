@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Система управления контентом с редактором, категориями и комментариями.">
+    <meta name="color-scheme" content="light dark">
+    <title>Проект 3 — Блог / CMS — Алексей Алексеев</title>
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="static/css/style.css?v=12">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container" aria-label="Основная навигация">
+            <a class="nav__logo" href="./">Алексей Алексеев</a>
+            <div class="nav__right">
+                <a href="./#projects">Все проекты</a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему"></button>
+            </div>
+        </nav>
+    </header>
+    <main class="container doc">
+        <p><a href="./#projects">&larr; Все проекты</a></p>
+        <h1>Проект 3 — Блог / CMS</h1>
+        <ul class="card__tags" aria-label="Технологии"><li>Django</li><li>HTML/CSS/JS</li><li>Git</li></ul>
+
+        <h2>О проекте</h2>
+        <p>Блог с панелью для редакторов: статьи, категории, теги, комментарии и модерация. Важно было сделать удобную админку и аккуратный адаптивный интерфейс.</p>
+
+        <h2>Что я сделал</h2>
+        <ul><li>Разработал модели контента и административную панель</li><li>Сверстал адаптивный интерфейс без лишних зависимостей</li><li>Добавил комментарии, модерацию и поиск по статьям</li><li>Настроил SEO-разметку и карту сайта</li></ul>
+
+        <h2>Результат</h2>
+        <ul><li>Редакторы публикуют материалы без помощи разработчика</li><li>Страницы хорошо индексируются поисковиками</li><li>Интерфейс удобен на телефоне и компьютере</li></ul>
+
+        <h2>Ссылки</h2>
+        <p class="card__links"><a href="#">Код на GitHub</a> <a href="#">Демо</a></p>
+        <p class="todo">Текст на странице — заполнитель, замените его описанием своего проекта.</p>
+    </main>
+    <footer class="site-footer">
+        <div class="container"><p>&copy; 2026 Алексей Алексеев</p></div>
+    </footer>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            var MOON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+            var SUN = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></g></svg>';
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            function current() {
+                return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+            }
+            function render() {
+                var dark = current() === 'dark';
+                btn.innerHTML = dark ? SUN : MOON;
+                btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+                btn.title = btn.getAttribute('aria-label');
+            }
+            btn.addEventListener('click', function () {
+                var next = current() === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+                render();
+            });
+            mq.addEventListener && mq.addEventListener('change', render);
+            render();
+        })();
+    </script>
+</body>
+</html>

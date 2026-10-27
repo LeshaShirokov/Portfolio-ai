@@ -14,7 +14,7 @@
             } catch (e) {}
         })();
     </script>
-    <link rel="stylesheet" href="static/css/style.css?v=6">
+    <link rel="stylesheet" href="static/css/style.css?v=7">
 </head>
 <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -28,6 +28,7 @@
                 <li><a href="#skills">Навыки</a></li>
                 <li><a href="#projects">Проекты</a></li>
                 <li><a href="#experience">Опыт</a></li>
+                <li><a href="#request">Заявка</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
             <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему"></button>
@@ -169,6 +170,40 @@
             </div>
         </section>
 
+        <!-- Заявка на разработку -->
+        <section class="section section--alt" id="request" aria-labelledby="request-title">
+            <div class="container">
+                <h2 id="request-title" class="section__title">Заявка на разработку проекта</h2>
+                <p class="contacts__text">Опишите задачу, и я свяжусь с вами, чтобы обсудить сроки и стоимость.</p>
+                <form class="request-form" id="request-form" novalidate>
+                    <div class="field">
+                        <label for="rf-name">Имя</label>
+                        <input id="rf-name" name="name" type="text" autocomplete="name" required maxlength="100">
+                    </div>
+                    <div class="field">
+                        <label for="rf-email">Email для связи</label>
+                        <input id="rf-email" name="email" type="email" autocomplete="email" required maxlength="100">
+                    </div>
+                    <div class="field">
+                        <label for="rf-task">Описание проекта</label>
+                        <textarea id="rf-task" name="task" rows="6" required maxlength="3000" placeholder="Что нужно сделать, какие сроки и бюджет"></textarea>
+                    </div>
+                    <div class="field field--consent">
+                        <input id="rf-consent" name="consent" type="checkbox" required>
+                        <label for="rf-consent">
+                            Я даю согласие на обработку моих персональных данных (имя, адрес электронной почты и сведения,
+                            указанные в описании проекта) в целях рассмотрения заявки и связи со мной, на условиях
+                            <a href="privacy.html" target="_blank" rel="noopener">Политики обработки персональных данных</a>.
+                            Согласие можно отозвать в любой момент, написав на адрес, указанный в политике.
+                        </label>
+                    </div>
+                    <p class="form-error" id="rf-error" role="alert" hidden></p>
+                    <button class="btn btn--primary" type="submit">Отправить заявку</button>
+                    <p class="form-note">Нажав кнопку, вы откроете почтовую программу с готовым письмом. Данные отправляются напрямую мне и не сохраняются на сайте.</p>
+                </form>
+            </div>
+        </section>
+
         <!-- Контакты -->
         <section class="section" id="contacts" aria-labelledby="contacts-title">
             <div class="container contacts">
@@ -194,7 +229,7 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 Алексей Алексеев. Сделано с любовью к коду.</p>
+            <p>&copy; 2026 Алексей Алексеев. Сделано с любовью к коду. · <a href="privacy.html">Политика обработки персональных данных</a></p>
         </div>
     </footer>
     <script>
@@ -221,6 +256,30 @@
             });
             mq.addEventListener && mq.addEventListener('change', render);
             render();
+        })();
+    </script>
+    <script>
+        (function () {
+            var form = document.getElementById('request-form');
+            var err = document.getElementById('rf-error');
+            var TO = 'you@example.com'; // замените на свой адрес
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var name = form.name.value.trim(), email = form.email.value.trim(), task = form.task.value.trim();
+                err.hidden = true;
+                if (!name || !email || !task || !form.email.validity.valid) {
+                    err.textContent = 'Заполните все поля и укажите корректный email.';
+                    err.hidden = false; return;
+                }
+                if (!form.consent.checked) {
+                    err.textContent = 'Для отправки заявки необходимо согласие на обработку персональных данных.';
+                    err.hidden = false; return;
+                }
+                var body = 'Имя: ' + name + '\nEmail: ' + email + '\n\nОписание проекта:\n' + task +
+                    '\n\nСогласие на обработку персональных данных дано: ' + new Date().toLocaleString('ru-RU');
+                window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Заявка на разработку проекта') +
+                    '&body=' + encodeURIComponent(body);
+            });
         })();
     </script>
 </body>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Политика обработки персональных данных">
+    <meta name="color-scheme" content="light dark">
+    <title>Политика обработки персональных данных</title>
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="static/css/style.css?v=7">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav container" aria-label="Основная навигация">
+            <a class="nav__logo" href="./">Алексей Алексеев</a>
+            <div class="nav__right">
+                <a href="./">На главную</a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему"></button>
+            </div>
+        </nav>
+    </header>
+    <main class="container doc">
+        <h1>Политика обработки персональных данных</h1>
+        <p>Редакция от 27.10.2026. Политика подготовлена в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+
+        <h2>1. Оператор</h2>
+        <p>Оператор персональных данных: <span class="todo">[ФИО полностью / ИП / самозанятый, ИНН]</span>.
+        Контактный адрес электронной почты для обращений по вопросам обработки данных: <span class="todo">[email]</span>.</p>
+
+        <h2>2. Какие данные собираются</h2>
+        <p>Через форму «Заявка на разработку проекта» оператор получает только то, что вы указали сами: имя, адрес электронной почты и сведения о проекте из поля описания. Просим не указывать в описании паспортные данные, данные о здоровье и иные сведения, не нужные для рассмотрения заявки.</p>
+
+        <h2>3. Цели обработки</h2>
+        <ul>
+            <li>рассмотрение заявки на разработку проекта;</li>
+            <li>связь с вами для обсуждения задачи, сроков и стоимости;</li>
+            <li>заключение и исполнение договора, если вы решите сотрудничать.</li>
+        </ul>
+
+        <h2>4. Правовое основание</h2>
+        <p>Обработка осуществляется на основании вашего согласия (п. 1 ч. 1 ст. 6 152-ФЗ), которое вы даёте, отмечая соответствующее поле в форме. Поле не отмечено заранее, без согласия заявка не отправляется.</p>
+
+        <h2>5. Как происходит передача и хранение</h2>
+        <p>Форма на сайте формирует письмо в вашей почтовой программе. Заявка поступает оператору по электронной почте, на самом сайте данные не сохраняются и не передаются третьим лицам. Оператор не передаёт персональные данные третьим лицам, кроме случаев, предусмотренных законом. Хранение переписки осуществляется на территории Российской Федерации: <span class="todo">[укажите почтовый сервис / хранилище с серверами в РФ]</span>.</p>
+
+        <h2>6. Срок хранения</h2>
+        <p>Данные хранятся до достижения целей обработки, но не дольше 1 года с момента последнего контакта, если иное не требуется для исполнения договора или закона. После этого они уничтожаются.</p>
+
+        <h2>7. Cookie и аналитика</h2>
+        <p>Сайт не использует cookie, системы аналитики и рекламные сервисы. В браузере сохраняется только выбранная тема оформления (светлая или тёмная), эти данные не являются персональными и не передаются оператору.</p>
+
+        <h2>8. Ваши права</h2>
+        <p>Вы вправе запросить сведения об обработке своих данных, потребовать их уточнения, блокирования или уничтожения, а также отозвать согласие. Для этого напишите оператору на адрес из раздела 1. Оператор ответит в сроки, установленные 152-ФЗ. Вы также вправе обратиться в Роскомнадзор или в суд.</p>
+
+        <h2>9. Изменение политики</h2>
+        <p>Оператор может обновлять политику. Актуальная версия всегда доступна на этой странице.</p>
+    </main>
+    <footer class="site-footer">
+        <div class="container"><p>&copy; 2026 Алексей Алексеев</p></div>
+    </footer>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            var MOON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+            var SUN = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></g></svg>';
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            function current() {
+                return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+            }
+            function render() {
+                var dark = current() === 'dark';
+                btn.innerHTML = dark ? SUN : MOON;
+                btn.setAttribute('aria-label', dark ? 'Включить светлую тему' : 'Включить тёмную тему');
+                btn.title = btn.getAttribute('aria-label');
+            }
+            btn.addEventListener('click', function () {
+                var next = current() === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+                render();
+            });
+            mq.addEventListener && mq.addEventListener('change', render);
+            render();
+        })();
+    </script>
+</body>
+</html>

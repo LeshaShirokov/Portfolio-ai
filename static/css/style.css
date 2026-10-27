@@ -390,3 +390,32 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
     .section { padding: 3.5rem 0; }
     .hero__actions .btn { flex: 1 1 100%; text-align: center; }
 }
+
+/* ===== Форма заявки ===== */
+.request-form { max-width: 640px; display: grid; gap: 1.25rem; }
+.field { display: grid; gap: 0.4rem; }
+.field label { font-weight: 600; }
+.field input[type="text"], .field input[type="email"], .field textarea {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+.field textarea { resize: vertical; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.field--consent { grid-template-columns: auto 1fr; align-items: start; gap: 0.75rem; }
+.field--consent label { font-weight: 400; font-size: 0.9rem; color: var(--text-muted); }
+.field--consent input { width: 1.15rem; height: 1.15rem; margin-top: 0.2rem; accent-color: var(--accent); }
+.request-form .btn { justify-self: start; cursor: pointer; font: inherit; font-weight: 600; }
+.form-error { margin: 0; color: var(--accent); font-weight: 600; }
+.form-note { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+
+/* ===== Страница политики ===== */
+.doc { max-width: 820px; padding: 3rem 0 5rem; }
+.doc h1 { font-size: clamp(1.6rem, 4vw, 2.1rem); }
+.doc h2 { font-size: 1.2rem; margin-top: 2rem; }
+.doc p, .doc li { color: var(--text-muted); }
+.doc .todo { color: var(--accent); font-weight: 600; }

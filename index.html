@@ -14,7 +14,7 @@
             } catch (e) {}
         })();
     </script>
-    <link rel="stylesheet" href="static/css/style.css?v=10">
+    <link rel="stylesheet" href="static/css/style.css?v=11">
 </head>
 <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -198,7 +198,6 @@
                         </label>
                     </div>
                     <p class="form-error" id="rf-error" role="alert" hidden></p>
-                    <p class="form-ok" id="rf-ok" role="status" hidden></p>
                     <button class="btn btn--primary" type="submit">Отправить заявку</button>
                     <p class="form-note">Сейчас форма работает в тестовом режиме: данные никуда не отправляются и не сохраняются.</p>
                 </form>
@@ -259,15 +258,22 @@
             render();
         })();
     </script>
+    <dialog class="modal" id="test-dialog" aria-labelledby="test-dialog-title">
+        <h2 id="test-dialog-title">Заявка заполнена корректно</h2>
+        <p>Но в работу она не принята, так как страница тестовая: данные никуда не отправляются и не сохраняются.</p>
+        <button class="btn btn--primary" type="button">Понятно</button>
+    </dialog>
     <script>
         (function () {
             var form = document.getElementById('request-form');
             var err = document.getElementById('rf-error');
-            var ok = document.getElementById('rf-ok');
+            var dlg = document.getElementById('test-dialog');
+            dlg.querySelector('button').addEventListener('click', function () { dlg.close(); });
+            dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 var name = form.name.value.trim(), email = form.email.value.trim(), task = form.task.value.trim();
-                err.hidden = true; ok.hidden = true;
+                err.hidden = true;
                 if (!name || !email || !task || !form.email.validity.valid) {
                     err.textContent = 'Заполните все поля и укажите корректный email.';
                     err.hidden = false; return;
@@ -279,8 +285,7 @@
                 // ЗАГЛУШКА: заявка пока никуда не отправляется.
                 // Когда будет готов приём заявок, отправьте данные здесь.
                 form.reset();
-                ok.textContent = 'Спасибо! Заявка принята (тестовый режим: данные пока никуда не отправляются).';
-                ok.hidden = false;
+                dlg.showModal();
             });
         })();
     </script>

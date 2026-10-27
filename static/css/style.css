@@ -411,7 +411,6 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
 .field--consent input { width: 1.15rem; height: 1.15rem; margin-top: 0.2rem; accent-color: var(--accent); }
 .request-form .btn { justify-self: start; cursor: pointer; font: inherit; font-weight: 600; }
 .form-error { margin: 0; color: var(--accent); font-weight: 600; }
-.form-ok { margin: 0; color: var(--text); font-weight: 600; }
 .form-note { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
 
 /* ===== Страница политики ===== */
@@ -420,3 +419,18 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
 .doc h2 { font-size: 1.2rem; margin-top: 2rem; }
 .doc p, .doc li { color: var(--text-muted); }
 .doc .todo { color: var(--accent); font-weight: 600; }
+
+/* ===== Всплывающее окно ===== */
+.modal {
+    max-width: min(440px, calc(100vw - 2rem));
+    padding: 1.75rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+.modal::backdrop { background: rgba(0, 0, 0, 0.55); }
+.modal h2 { margin: 0 0 0.75rem; font-size: 1.25rem; }
+.modal p { margin: 0 0 1.5rem; color: var(--text-muted); }
+.modal .btn { cursor: pointer; font: inherit; font-weight: 600; }

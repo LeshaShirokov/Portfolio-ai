@@ -234,7 +234,29 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
     background: var(--accent);
 }
 
+.about__layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+.about__photo { margin: 0; }
+.about__photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
 .about__content { max-width: 760px; color: var(--text-muted); }
+
+@media (max-width: 720px) {
+    .about__layout { grid-template-columns: 1fr; }
+    .about__photo { max-width: 260px; }
+}
 
 /* ===== Навыки ===== */
 .skills {

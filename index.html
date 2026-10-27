@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Портфолио Ваше Имя — Python / Django разработчик">
+    <meta name="color-scheme" content="light dark">
+    <title>Ваше Имя — Python / Django разработчик</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <header class="site-header">
+        <nav class="nav container" aria-label="Основная навигация">
+            <a class="nav__logo" href="#top">Ваше Имя</a>
+            <ul class="nav__links">
+                <li><a href="#about">Обо мне</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#experience">Опыт</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="container hero__inner">
+                <p class="hero__greeting">Привет, меня зовут</p>
+                <h1 id="hero-title" class="hero__title">Ваше Имя</h1>
+                <p class="hero__subtitle">Python / Django разработчик</p>
+                <p class="hero__text">
+                    Создаю надёжные веб-приложения и API на Python и Django: от проектирования базы данных до деплоя в продакшен.
+                </p>
+                <div class="hero__actions">
+                    <a class="btn btn--primary" href="#projects">Смотреть проекты</a>
+                    <a class="btn btn--outline" href="#contacts">Связаться со мной</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Обо мне -->
+        <section class="section" id="about" aria-labelledby="about-title">
+            <div class="container about">
+                <h2 id="about-title" class="section__title">Обо мне</h2>
+                <div class="about__content">
+                    <p>
+                        Я backend-разработчик, специализирующийся на Python и Django. Здесь можно
+                        рассказать о себе: как вы пришли в программирование, что вам нравится в работе
+                        и какие задачи вы любите решать.
+                    </p>
+                    <p>
+                        Опишите свой подход к разработке: чистый код, тесты, документация,
+                        внимание к производительности и безопасности. Этот текст — заполнитель,
+                        замените его своим.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Навыки -->
+        <section class="section section--alt" id="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 id="skills-title" class="section__title">Навыки</h2>
+                <ul class="skills" role="list">
+                    <li class="skill">Python</li>
+                    <li class="skill">Django</li>
+                    <li class="skill">Django REST Framework</li>
+                    <li class="skill">PostgreSQL</li>
+                    <li class="skill">Docker</li>
+                    <li class="skill">Git</li>
+                    <li class="skill">Redis</li>
+                    <li class="skill">Celery</li>
+                    <li class="skill">HTML / CSS / JS</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Проекты -->
+        <section class="section" id="projects" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 id="projects-title" class="section__title">Проекты</h2>
+                <div class="projects">
+                    <article class="card">
+                        <h3 class="card__title">Проект 1 — Интернет-магазин</h3>
+                        <p class="card__text">
+                            Краткое описание проекта: какую задачу решает, ваша роль и результат.
+                        </p>
+                        <ul class="card__tags" aria-label="Технологии">
+                            <li>Django</li><li>PostgreSQL</li><li>Docker</li>
+                        </ul>
+                        <div class="card__links">
+                            <a href="#" aria-label="Код проекта 1 на GitHub">Код</a>
+                            <a href="#" aria-label="Демо проекта 1">Демо</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <h3 class="card__title">Проект 2 — REST API</h3>
+                        <p class="card__text">
+                            Краткое описание проекта: какую задачу решает, ваша роль и результат.
+                        </p>
+                        <ul class="card__tags" aria-label="Технологии">
+                            <li>DRF</li><li>Redis</li><li>Celery</li>
+                        </ul>
+                        <div class="card__links">
+                            <a href="#" aria-label="Код проекта 2 на GitHub">Код</a>
+                            <a href="#" aria-label="Документация проекта 2">Документация</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <h3 class="card__title">Проект 3 — Блог / CMS</h3>
+                        <p class="card__text">
+                            Краткое описание проекта: какую задачу решает, ваша роль и результат.
+                        </p>
+                        <ul class="card__tags" aria-label="Технологии">
+                            <li>Django</li><li>HTML/CSS/JS</li><li>Git</li>
+                        </ul>
+                        <div class="card__links">
+                            <a href="#" aria-label="Код проекта 3 на GitHub">Код</a>
+                            <a href="#" aria-label="Демо проекта 3">Демо</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Опыт -->
+        <section class="section section--alt" id="experience" aria-labelledby="experience-title">
+            <div class="container">
+                <h2 id="experience-title" class="section__title">Опыт</h2>
+                <ol class="timeline">
+                    <li class="timeline__item">
+                        <p class="timeline__date"><time datetime="2023">2023</time> — настоящее время</p>
+                        <h3 class="timeline__role">Python / Django разработчик</h3>
+                        <p class="timeline__company">Название компании</p>
+                        <p>Разработка и поддержка веб-сервисов, проектирование API, оптимизация запросов к БД.</p>
+                    </li>
+                    <li class="timeline__item">
+                        <p class="timeline__date"><time datetime="2021">2021</time> — <time datetime="2023">2023</time></p>
+                        <h3 class="timeline__role">Junior Python разработчик</h3>
+                        <p class="timeline__company">Название компании</p>
+                        <p>Участие в разработке внутренних сервисов, написание тестов, работа с Celery и Redis.</p>
+                    </li>
+                    <li class="timeline__item">
+                        <p class="timeline__date"><time datetime="2020">2020</time></p>
+                        <h3 class="timeline__role">Обучение</h3>
+                        <p class="timeline__company">Курсы / университет</p>
+                        <p>Основы программирования, Python, базы данных, веб-разработка.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section class="section" id="contacts" aria-labelledby="contacts-title">
+            <div class="container contacts">
+                <h2 id="contacts-title" class="section__title">Контакты</h2>
+                <p class="contacts__text">Открыт к новым проектам и предложениям. Напишите мне!</p>
+                <ul class="contacts__list" role="list">
+                    <li>
+                        <span class="contacts__label">Email</span>
+                        <a href="mailto:you@example.com">you@example.com</a>
+                    </li>
+                    <li>
+                        <span class="contacts__label">GitHub</span>
+                        <a href="https://github.com/username" target="_blank" rel="noopener noreferrer">github.com/username</a>
+                    </li>
+                    <li>
+                        <span class="contacts__label">Telegram</span>
+                        <a href="https://t.me/username" target="_blank" rel="noopener noreferrer">@username</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Ваше Имя. Сделано на Django.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -239,7 +239,6 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    text-align: center;
 }
 .about__photo { margin: 0; }
 .about__photo img {
@@ -253,7 +252,7 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; }
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
 }
-.about__content { max-width: 760px; color: var(--text-muted); }
+.about__content { max-width: 760px; width: 100%; align-self: flex-start; text-align: left; color: var(--text-muted); }
 
 
 /* ===== Навыки ===== */
